@@ -25,6 +25,11 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 8
+
+      - name: Install dependencies
+        id: install-dependencies
+        run: |
+          pnpm install
       
       - name: Configure AWS credentials
         id: configure-aws-credentials
