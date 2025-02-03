@@ -38,7 +38,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ vars.ECR_REPOSITORY }}:${{ steps.generate-tag.outputs.sha }}
+          tags: |
+            ${{ STEPS.login-ecr.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ steps.generate-tag.outputs.sha }}
           # env:
           #   ECR_REGISTRY: ${{ STEPS.login-ecr.outputs.registry }}
           #   ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
