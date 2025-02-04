@@ -3,6 +3,7 @@ services:
   db:
     image: postgres:latest
     container_name: postgresql
+    restart: unless-stopped
     ports:
       - $POSTGRES_PORT:$POSTGRES_PORT
     environment:
@@ -17,6 +18,7 @@ services:
     depends_on:
       - db
     container_name: widget-server
+    restart: unless-stopped
     ports:
       - 3000:$PORT
     environment:
